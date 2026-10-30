@@ -1,4 +1,4 @@
-
+﻿
 import "./style.css";
 
 document.querySelector("#app").innerHTML = `
@@ -24,7 +24,7 @@ document.querySelector("#app").innerHTML = `
           body can do with coaching that meets you where you are.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#programs">Explore programs ↗</a>
+          <a class="button button-primary" href="#programs">Explore programs â†—</a>
           <a class="button button-secondary" href="#about">Discover our approach</a>
         </div>
         <div class="hero-stats" aria-label="Our training philosophy">
@@ -35,15 +35,17 @@ document.querySelector("#app").innerHTML = `
       </div>
       <div class="hero-visual">
         <img
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1100&q=80"
+          src="${import.meta.env.BASE_URL}images/hero-source.webp"
           alt="Modern gym with strength training equipment"
           fetchpriority="high"
+          width="1200"
+          height="800"
         />
         <div class="image-label">
           <span class="pulse-dot"></span>
           <span><strong>BUILT THROUGH CONSISTENCY</strong><small>Every rep moves you forward.</small></span>
         </div>
-        <div class="vertical-label">STRENGTH · DISCIPLINE · COMMUNITY</div>
+        <div class="vertical-label">STRENGTH Â· DISCIPLINE Â· COMMUNITY</div>
       </div>
     </section>
 
@@ -60,44 +62,62 @@ document.querySelector("#app").innerHTML = `
           <span class="program-number">01 / PERSONAL</span>
           <h3>Personal Training</h3>
           <p>One-to-one coaching shaped around your goals, experience, and schedule.</p>
-          <a href="#contact">Find your coach ↗</a>
+          <a href="#contact">Find your coach â†—</a>
         </article>
         <article class="program-card">
           <span class="program-number">02 / STRENGTH</span>
           <h3>Strength & Conditioning</h3>
           <p>Build strength, improve movement, and develop a foundation that lasts.</p>
-          <a href="#contact">Build your plan ↗</a>
+          <a href="#contact">Build your plan â†—</a>
         </article>
         <article class="program-card">
           <span class="program-number">03 / COMMUNITY</span>
           <h3>Group Fitness</h3>
           <p>Bring your energy, train with others, and make consistency a habit.</p>
-          <a href="#contact">Join a class ↗</a>
+          <a href="#contact">Join a class â†—</a>
         </article>
       </div>
     </section>
 
     <section class="approach section" id="about">
-      <p class="eyebrow">THE IRONPULSE APPROACH</p>
-      <h2>Less guesswork.<br /><span>More meaningful progress.</span></h2>
-      <p>We believe fitness should be challenging, welcoming, and sustainable.
-        Start where you are, focus on the fundamentals, and keep showing up.</p>
-    </section>
+  <div class="approach-content">
+    <p class="eyebrow">THE IRONPULSE APPROACH</p>
+    <h2>Less guesswork.<br /><span>More meaningful progress.</span></h2>
+    <p>
+      We believe fitness should be challenging, welcoming, and sustainable.
+      Start where you are, focus on the fundamentals, and keep showing up.
+    </p>
+  </div>
+
+  <div class="approach-visual">
+    <img
+      src="${import.meta.env.BASE_URL}images/training-source.webp"
+      alt="Athlete participating in a fitness training session"
+      loading="lazy"
+      decoding="async"
+      width="1000"
+      height="667"
+    />
+  </div>
+</section>
 
     <section class="contact section" id="contact">
       <div>
         <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
         <h2>Ready to get moving?</h2>
       </div>
-      <a class="button button-primary" href="mailto:hello@ironpulse.example">Ask about training ↗</a>
+      <a class="button button-primary" href="mailto:hello@ironpulse.example">Ask about training â†—</a>
     </section>
   </main>
 
   <footer>
     <a class="brand" href="#"><span class="brand-mark">IP</span> IRONPULSE FITNESS</a>
     <p>Train with purpose. Progress with confidence.</p>
-    <span>© <span id="year"></span> IronPulse Fitness</span>
+    <span>Â© <span id="year"></span> IronPulse Fitness</span>
   </footer>
 `;
 
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+
+
