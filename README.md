@@ -149,4 +149,44 @@ The final measurements were obtained using Lighthouse Mobile Performance testing
 ## Repository
 
 GitHub: [https://github.com/maleeha1d2003/ironpulse-fitness-website](https://github.com/maleeha1d2003/ironpulse-fitness-website)
- 
+
+## Task 3: Code Splitting & Dynamic Imports
+
+Task 3 separates the class schedule and booking form into independent JavaScript modules. These modules are loaded on demand with JavaScript dynamic imports so visitors do not download their code during the initial page load.
+
+### Dynamic Modules
+
+| Module | Purpose | Loading behavior |
+|---|---|---|
+| `src/schedule.js` | Renders the class schedule | Loaded when the visitor opens `#schedule` |
+| `src/booking.js` | Renders the booking form | Loaded when the visitor opens `#booking` |
+| `src/main.js` | Initial page, routing, and navigation | Loaded on the initial page visit |
+
+### Implementation
+
+The application uses dynamic imports in `src/main.js`:
+
+```js
+const { renderSchedule } = await import("./schedule.js");
+```
+
+and:
+
+```js
+const { renderBooking } = await import("./booking.js");
+```
+
+The schedule and booking modules are therefore separate code-split chunks in the Vite production build. Hash-based navigation and the `hashchange` event allow users to move between the home page, schedule, and booking views without a full-page reload.
+
+### Verify the Production Build
+
+Run:
+
+```bash
+npm install
+npm run build
+```
+
+Vite creates the production output in `dist/`. Check the generated JavaScript files in `dist/assets/` to confirm that the schedule and booking modules are emitted as separate chunks. Check the build output to verify the initial JavaScript bundle is below the required 200 KB limit.
+
+The booking form is a front-end demonstration: it validates the required fields and displays a confirmation message, but it does not submit information to a backend or store bookings.
